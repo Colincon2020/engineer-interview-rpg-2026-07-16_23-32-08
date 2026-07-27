@@ -5,14 +5,13 @@ using UnityEngine;
 /// <summary>
 /// プレイヤー（転生したエンジニア）を定義するオブジェクト。
 /// 1週間の特訓中の状態（日数・ライフポイント・メンタル・各スキルの習熟度）を保持し、
-/// 「練習」「就寝」といったゲームの基本アクションを提供する。
+/// 「就寝」および練習への委譲（<see cref="Practice"/>）を提供する。
 ///
 /// 仕様（7/16作戦会議メモより）:
 ///  - 1週間（<see cref="TotalDays"/>日）特訓し、最終日に面接へ挑む。
-///  - 練習は1日に何回でも可能。1回につきライフポイントを1消費してスキルが上昇する。
-///  - ライフポイントは就寝（=翌日へ）で最大まで回復する。
-///  - ライフポイントが尽きた状態で練習を続けると、代わりにメンタルを消費する。
-///  - メンタルは回復しない。0になると、その日はもう練習できず就寝するしかない。
+///  - 練習ルール（消費・上昇値・メンタル代替）の本体は <see cref="Practice"/> を参照。
+///  - ライフポイント上限は <see cref="MaxLifePoints"/>。就寝（=翌日へ）で最大まで回復する。
+///  - メンタル上限は <see cref="MaxMental"/>。回復手段はない。
 /// </summary>
 public class Player : MonoBehaviour
 {
@@ -26,9 +25,6 @@ public class Player : MonoBehaviour
 
     /// <summary>メンタルの総量。回復手段はない。</summary>
     public const int MaxMental = 10;
-
-    /// <summary>練習1回でスキルが上昇する値（上昇値）。</summary>
-    public const int SkillGainPerPractice = 1;
 
     // ---- 現在の状態 ----
 
@@ -59,7 +55,7 @@ public class Player : MonoBehaviour
     /// <summary>特訓期間が終了し、面接フェーズへ進めるか。</summary>
     public bool IsWeekFinished => currentDay > TotalDays;
 
-    /// <summary>これ以上その日に練習できない（ライフもメンタルも尽きた）状態か。</summary>
+    /// <summary>ライフもメンタルも尽きた状態か（練習中にメンタルが 0 になると EndScene へ遷移する）。</summary>
     public bool IsExhausted => lifePoints <= 0 && mental <= 0;
 
     // ---- イベント（UI / スキルシート更新用） ----
@@ -92,39 +88,56 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// 指定スキルを練習する。ライフポイントがあればライフを、無ければメンタルを消費し、
-    /// スキルを <see cref="SkillGainPerPractice"/> だけ上昇させる。
+    /// 指定スキルを練習する。<see cref="Practice.TryExecute"/> へ委譲する薄いラッパー。
     /// </summary>
     /// <returns>練習できた場合は true。ライフもメンタルも尽きていて練習できない場合は false。</returns>
     public bool Practice(SkillType skill)
     {
-        if (IsWeekFinished)
+        return global::Practice.TryExecute(this, skill).Success;
+    }
+
+    /// <summary>
+    /// 練習用にライフポイントを消費する。足りない場合は false。
+    /// イベントは発火しない（呼び出し側でまとめて通知する）。
+    /// </summary>
+    public bool TryConsumeLifeForPractice(int amount)
+    {
+        if (amount <= 0 || lifePoints < amount)
         {
-            Debug.LogWarning("特訓期間は終了しています。面接へ進んでください。");
             return false;
         }
 
-        if (lifePoints > 0)
+        lifePoints -= amount;
+        return true;
+    }
+
+    /// <summary>
+    /// 練習用にメンタルを消費する。足りない場合は false。
+    /// イベントは発火しない（呼び出し側でまとめて通知する）。
+    /// </summary>
+    public bool TryConsumeMentalForPractice(int amount)
+    {
+        if (amount <= 0 || mental < amount)
         {
-            lifePoints--;
-        }
-        else if (mental > 0)
-        {
-            // ライフが尽きた状態での練習はメンタルを削る。
-            mental--;
-        }
-        else
-        {
-            Debug.Log("ライフもメンタルも尽きています。就寝してください。");
             return false;
         }
 
-        int newLevel = GetSkillLevel(skill) + SkillGainPerPractice;
+        mental -= amount;
+        return true;
+    }
+
+    /// <summary>
+    /// 指定スキルの習熟度を加算し、上昇後のレベルを返す。
+    /// <see cref="SkillLeveledUp"/> と <see cref="StateChanged"/> を発火する。
+    /// </summary>
+    public int AddSkillLevel(SkillType skill, int amount)
+    {
+        int newLevel = GetSkillLevel(skill) + amount;
         skillLevels[skill] = newLevel;
 
         SkillLeveledUp?.Invoke(skill, newLevel);
         StateChanged?.Invoke();
-        return true;
+        return newLevel;
     }
 
     /// <summary>

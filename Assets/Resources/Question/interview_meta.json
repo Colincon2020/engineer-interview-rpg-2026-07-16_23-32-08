@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "gameTitle": "まっしろから始めるエンジニア転生記",
+    "dataName": "interview_meta",
+    "version": "1.0.0",
+    "updatedAt": "2026-07-26",
+    "note": "面接の共通メタデータと採点ルール。質問本体は hr_interviewer / tech_interviewer / ceo_interviewer を参照。difficultyWeights は JsonUtility 用に配列形式。"
+  },
+  "scoring": {
+    "maxScorePerQuestion": 10,
+    "difficultyWeights": [
+      {
+        "difficulty": "易",
+        "weight": 1.0
+      },
+      {
+        "difficulty": "中",
+        "weight": 1.5
+      },
+      {
+        "difficulty": "高",
+        "weight": 2.0
+      }
+    ],
+    "maxTotalScore": 625,
+    "formula": "totalScore = Σ(choice.score × question.difficultyWeight)",
+    "salary": {
+      "formula": "annualIncome = 3000000 + (totalScore / 625) * 7000000",
+      "unit": "円",
+      "min": 3000000,
+      "max": 10000000
+    },
+    "ranks": [
+      {
+        "rank": "S",
+        "minScore": 550,
+        "label": "即戦力エンジニア"
+      },
+      {
+        "rank": "A",
+        "minScore": 440,
+        "label": "期待の新人"
+      },
+      {
+        "rank": "B",
+        "minScore": 330,
+        "label": "見習いエンジニア"
+      },
+      {
+        "rank": "C",
+        "minScore": 200,
+        "label": "研修からスタート"
+      },
+      {
+        "rank": "D",
+        "minScore": 0,
+        "label": "お祈りメール"
+      }
+    ],
+    "hintRule": "technical / mixed の質問で player.skill[hintSkill].level >= hintRequiredLevel のとき、isCorrect の選択肢を赤色で表示する。"
+  }
+}

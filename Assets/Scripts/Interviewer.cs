@@ -103,6 +103,11 @@ public abstract class Interviewer : MonoBehaviour
     [Tooltip("能力が最低でもこの確率では答えられる、という下駄。")]
     private float baselineSuccessRate = 0.1f;
 
+    [Header("質問データ")]
+    [SerializeField]
+    [Tooltip("オンなら Resources/Question の JSON から質問を読み込む。")]
+    private bool loadQuestionsFromResources = true;
+
     /// <summary>この面接官の種別。</summary>
     public abstract InterviewerType Type { get; }
 
@@ -120,6 +125,33 @@ public abstract class Interviewer : MonoBehaviour
 
     /// <summary>面接が完了したときに発火する（結果を渡す）。</summary>
     public event Action<InterviewResult> InterviewCompleted;
+
+    /// <summary>最後に読み込んだ JSON 本体（採点・ヒント判定用）。未読込なら null。</summary>
+    public InterviewerFileData LoadedFileData { get; private set; }
+
+    protected virtual void Awake()
+    {
+        if (loadQuestionsFromResources)
+        {
+            LoadQuestionsFromResources();
+        }
+    }
+
+    /// <summary>
+    /// Resources/Question の JSON から質問を読み込み、<see cref="SetQuestions"/> する。
+    /// </summary>
+    public bool LoadQuestionsFromResources()
+    {
+        InterviewerFileData data = InterviewDataLoader.LoadInterviewer(Type);
+        if (data == null)
+        {
+            return false;
+        }
+
+        LoadedFileData = data;
+        SetQuestions(InterviewDataLoader.ToInterviewQuestions(data));
+        return questions.Count > 0;
+    }
 
     /// <summary>
     /// AI 生成などで用意した質問を差し込む。null や空を渡した場合は自動生成にフォールバックする。

@@ -1,0 +1,384 @@
+{
+  "meta": {
+    "gameTitle": "まっしろから始めるエンジニア転生記",
+    "dataName": "tech_interviewer",
+    "version": "1.0.0",
+    "updatedAt": "2026-07-26",
+    "interviewerId": "tech",
+    "note": "技術面接官用の面接質問データ。choices は表示順にシャッフル可。question の hintSkill / hintRequiredLevel は「スキルが高いと正解が赤表示」判定に使用する。"
+  },
+  "interviewer": {
+    "id": "tech",
+    "name": "技術面接官",
+    "displayName": "技術面接官 クロサキ",
+    "theme": "技術",
+    "difficulty": "中",
+    "difficultyWeight": 1.5,
+    "questionCount": 9,
+    "askCount": 9,
+    "randomize": false,
+    "maxScore": 135,
+    "questions": [
+      {
+        "id": "tech_01",
+        "no": 1,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "SQLの INNER JOIN と LEFT JOIN の違いを説明してください。",
+        "hintSkill": "SQL",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "INNER JOIN は両方の表で一致した行だけ、LEFT JOIN は左表の全行を残し、一致しない右表の列は NULL になる。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "LEFT JOIN は左の表の行をすべて残し、一致しない右の表の列は NULL になります。INNER JOIN は一致した行だけ返します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "はい、NULL になるところまで押さえていますね。"
+          },
+          {
+            "id": "B",
+            "text": "書き方が違うだけで、返る結果は同じです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それは違います。件数が変わります。"
+          },
+          {
+            "id": "C",
+            "text": "INNER JOIN の方が必ず速いので、常にそちらを使うべきです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "速度の話と結果の話が混ざっていますね。"
+          },
+          {
+            "id": "D",
+            "text": "LEFT JOIN は左の表の一致した行だけを返します。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それだと INNER JOIN の説明になってしまいます。"
+          }
+        ]
+      },
+      {
+        "id": "tech_02",
+        "no": 2,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "Javaのインターフェースと抽象クラス、どう使い分けますか。",
+        "hintSkill": "JAVA",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "振る舞いの約束だけを定めるならインターフェース、共通の実装や状態を継承させたいなら抽象クラス。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "実装を持たせず約束だけ決めたいならインターフェース、共通の実装や状態を親に持たせたいなら抽象クラスです。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "使い分けの軸が言えていますね。"
+          },
+          {
+            "id": "B",
+            "text": "インターフェースは複数実装できるので、迷ったらインターフェースにします。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "結論としては悪くないですが、理由が浅いですね。"
+          },
+          {
+            "id": "C",
+            "text": "抽象クラスは古い書き方なので、今は使いません。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "そんなことはありませんよ。"
+          },
+          {
+            "id": "D",
+            "text": "どちらも同じもので、名前が違うだけです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……そこは分けて理解してほしいです。"
+          }
+        ]
+      },
+      {
+        "id": "tech_03",
+        "no": 3,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "C#の値型と参照型の違いは何ですか。",
+        "hintSkill": "C#",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "値型は値そのものが複製されて渡り、参照型は同じ実体を指す参照が渡る。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "struct などの値型は中身が複製されて渡り、class などの参照型は同じ実体を指す参照が渡ります。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "渡し方の違いを理解できていますね。"
+          },
+          {
+            "id": "B",
+            "text": "値型はスタック、参照型はヒープに置かれます。それだけの違いです。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "置き場所の話は合っていますが、本質は渡り方ですね。"
+          },
+          {
+            "id": "C",
+            "text": "参照型は書き換えられないので安全です。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "むしろ逆の話になっています。"
+          },
+          {
+            "id": "D",
+            "text": "値型は数値専用、参照型は文字専用です。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……そこは復習してきてください。"
+          }
+        ]
+      },
+      {
+        "id": "tech_04",
+        "no": 4,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "Pythonの浅いコピーと深いコピーの違いを教えてください。",
+        "hintSkill": "Python",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "浅いコピーは中の要素の参照を共有し、深いコピーは入れ子も含めて複製する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "浅いコピーは入れ物だけ複製して中の要素は共有され、深いコピーは入れ子の中身まで複製します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "入れ子まで触れられたのが良いですね。"
+          },
+          {
+            "id": "B",
+            "text": "浅いコピーは速く、深いコピーは遅いという速度の違いです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "結果はそうですが、理由が抜けています。"
+          },
+          {
+            "id": "C",
+            "text": "リストは浅いコピー、辞書は深いコピーになります。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "型では決まりませんよ。"
+          },
+          {
+            "id": "D",
+            "text": "= で代入すればどちらもコピーされるので、区別は不要です。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "そこが一番バグを生むところです。"
+          }
+        ]
+      },
+      {
+        "id": "tech_05",
+        "no": 5,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "C++でスマートポインタを使う理由は何ですか。",
+        "hintSkill": "C++",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "所有権を明確にし、スコープを抜けたときに自動で解放させて、解放漏れや二重解放を防ぐ。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "所有権をはっきりさせ、スコープを抜けたら自動で解放されるので、解放漏れや二重解放を防げます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "所有権という言葉が出てきたのは良い兆候です。"
+          },
+          {
+            "id": "B",
+            "text": "生ポインタより書く量が少なく、コードが短くなるからです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "短さは副産物ですね。"
+          },
+          {
+            "id": "C",
+            "text": "処理速度が生ポインタより速くなるからです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "速度が目的ではありません。"
+          },
+          {
+            "id": "D",
+            "text": "delete を書かなくてよくなるので、メモリを気にしなくて済みます。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "半分は合っていますが、気にしなくていいわけではないです。"
+          }
+        ]
+      },
+      {
+        "id": "tech_06",
+        "no": 6,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "JavaScriptでコールバックが深くネストしてしまったとき、どう整理しますか。",
+        "hintSkill": "JavaScript",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "Promise や async/await を使って処理を平坦に書き、エラー処理も一箇所にまとめる。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "Promise や async/await に置き換えて処理を平らに並べ、エラー処理もまとめます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "エラー処理まで意識できていますね。"
+          },
+          {
+            "id": "B",
+            "text": "関数を外に切り出して名前を付け、ネストを浅くします。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "有効ですが、非同期の扱い自体は変わりませんね。"
+          },
+          {
+            "id": "C",
+            "text": "setTimeout で順番を調整して待ちます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それは事故のもとです。"
+          },
+          {
+            "id": "D",
+            "text": "同期処理に書き換えて、待ち時間の間はループで待機します。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "画面が固まってしまいますね。"
+          }
+        ]
+      },
+      {
+        "id": "tech_07",
+        "no": 7,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "GPU（CUDA）で速くなる処理と、向かない処理を教えてください。",
+        "hintSkill": "Cuda",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "同じ計算を大量のデータに並列適用する処理は速く、分岐が多い逐次処理やデータ転送が支配的な処理は向かない。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "同じ計算を大量のデータへ並列に当てる処理は速くなります。分岐が多い逐次処理や、転送時間の方が大きい処理は向きません。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "転送コストに触れられたのは良いですね。"
+          },
+          {
+            "id": "B",
+            "text": "行列演算や画像処理が速くなります。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "例は正しいです。理由も言えるとよかったですね。"
+          },
+          {
+            "id": "C",
+            "text": "GPUを使えば、どんな処理でもCPUより速くなります。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "そこは誤解が多いところです。"
+          },
+          {
+            "id": "D",
+            "text": "描画専用なので、計算には使いません。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "今はそうでもないんですよ。"
+          }
+        ]
+      },
+      {
+        "id": "tech_08",
+        "no": 8,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "SwiftのOptionalとは何で、どう扱うのが安全ですか。",
+        "hintSkill": "Swift",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "値が無い状態を型として表す仕組み。強制アンラップを避け、if let / guard let などで安全に取り出す。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "値が無い状態を型で表す仕組みです。強制アンラップは避け、if let や guard let で取り出します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "落ちないコードを書く意識がありますね。"
+          },
+          {
+            "id": "B",
+            "text": "nil が入るかもしれない値です。使うときは ! を付けて取り出します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "前半は合っていますが、後半で落ちますね。"
+          },
+          {
+            "id": "C",
+            "text": "省略可能な引数を表す機能です。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それは別の話です。"
+          },
+          {
+            "id": "D",
+            "text": "エラーを無視するための仕組みです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……逆に安全側の仕組みですよ。"
+          }
+        ]
+      },
+      {
+        "id": "tech_09",
+        "no": 9,
+        "category": "技術",
+        "difficulty": "中",
+        "question": "Excel VBAのマクロが遅いとき、どこを見直しますか。",
+        "hintSkill": "VBA",
+        "hintRequiredLevel": 3,
+        "modelAnswer": "セルを1つずつ読み書きせず配列にまとめて処理し、画面更新や自動計算を一時的に止める。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "セルを1つずつ触るのをやめて配列でまとめて読み書きし、画面更新と自動計算を一時的に止めます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "実務でいちばん効くところですね。"
+          },
+          {
+            "id": "B",
+            "text": "画面更新をオフにします。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "効果はありますが、本体はセルアクセスです。"
+          },
+          {
+            "id": "C",
+            "text": "Select や Activate を挟んで、確実に対象を指定します。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それは遅くなる書き方です。"
+          },
+          {
+            "id": "D",
+            "text": "パソコンを買い替えます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……予算の話になってしまいますね。"
+          }
+        ]
+      }
+    ]
+  }
+}

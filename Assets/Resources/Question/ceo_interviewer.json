@@ -1,0 +1,824 @@
+{
+  "meta": {
+    "gameTitle": "まっしろから始めるエンジニア転生記",
+    "dataName": "ceo_interviewer",
+    "version": "1.0.0",
+    "updatedAt": "2026-07-26",
+    "interviewerId": "ceo",
+    "note": "社長面接官用の面接質問データ。choices は表示順にシャッフル可。question の hintSkill / hintRequiredLevel は「スキルが高いと正解が赤表示」判定に使用する。"
+  },
+  "interviewer": {
+    "id": "ceo",
+    "name": "社長面接官",
+    "displayName": "社長 タカギ",
+    "theme": "人柄＋技術（ランダム）",
+    "difficulty": "高",
+    "difficultyWeight": 2.0,
+    "questionCount": 20,
+    "askCount": 20,
+    "randomize": true,
+    "maxScore": 400,
+    "questions": [
+      {
+        "id": "ceo_01",
+        "no": 1,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "うちを選んだ理由を、一言で言ってください。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "会社の特徴と自分の状況を一本の線でつないで短く答える。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "基礎しかない自分でも、成果で評価してもらえる会社だと感じたからです。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "うちの空気をよく見ていますね。"
+          },
+          {
+            "id": "B",
+            "text": "事業の成長性に惹かれました。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "どの事業か、聞きたくなりますね。"
+          },
+          {
+            "id": "C",
+            "text": "知名度があるからです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "看板で選ばれるのは、少し寂しいな。"
+          },
+          {
+            "id": "D",
+            "text": "内定が出そうだと思ったからです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……本音がすぎるね。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_02",
+        "no": 2,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "あなたを採用すると、当社にはどんな得がありますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "自分の実績を、会社が得る価値に翻訳して語る。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "1週間でゼロから複数言語の基礎を積んだ学習速度を、そのまま現場の立ち上がりの速さに変えられます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "自分を戦力として説明できるのはいいね。"
+          },
+          {
+            "id": "B",
+            "text": "若さと体力で貢献します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "元気があるのは悪くない。"
+          },
+          {
+            "id": "C",
+            "text": "まだ何もできませんが、やる気はあります。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "やる気の使い先を聞きたかったな。"
+          },
+          {
+            "id": "D",
+            "text": "入ってみないとわかりません。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "こちらも判断できないよ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_03",
+        "no": 3,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "技術は数年で入れ替わります。10年後も価値を出し続けるには、何をしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "言語ではなく、設計・データ構造・計算量といった土台を磨き、新しい道具はその上に乗せる。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "言語ではなく、データ構造や設計、計算量といった土台を磨きます。新しい道具はその上に乗せます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "その考え方は10年もつね。"
+          },
+          {
+            "id": "B",
+            "text": "毎年、流行の言語を一つ覚え続けます。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "努力家だが、追いかけ続けるのは大変だよ。"
+          },
+          {
+            "id": "C",
+            "text": "資格を取り続けます。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "資格は入口にすぎないね。"
+          },
+          {
+            "id": "D",
+            "text": "会社が用意してくれる研修を待ちます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "待つ人に10年後の価値は残らないよ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_04",
+        "no": 4,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "経験のない技術しかない案件を任されたら、どうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "小さく試して早く見通しを立て、リスクを早めに共有する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "小さく試して数日で見通しを立て、危なそうな点を早めに共有します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "早く相談してくれる人は信頼できる。"
+          },
+          {
+            "id": "B",
+            "text": "まず全部学び終えてから着手します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "丁寧だが、それでは間に合わないな。"
+          },
+          {
+            "id": "C",
+            "text": "経験者に代わってもらえないか相談します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "誰かがやらなきゃいけないんだよ。"
+          },
+          {
+            "id": "D",
+            "text": "できないと断ります。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……それでは任せられないね。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_05",
+        "no": 5,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "納期に間に合いません。品質を落としますか、納期を延ばしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "二択にせず、削れる範囲を機能単位で示して判断を仰ぐ。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "二択にせず、削れる機能と落とせない品質を整理して、判断材料を添えて相談します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "経営としては、その報告が一番助かる。"
+          },
+          {
+            "id": "B",
+            "text": "品質は守りたいので、納期の延長をお願いします。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "筋は通っているね。"
+          },
+          {
+            "id": "C",
+            "text": "間に合わせるため、テストを省きます。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "あとで倍の代償を払うことになるよ。"
+          },
+          {
+            "id": "D",
+            "text": "黙って残業して埋めます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "一番困るのは、黙られることなんだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_06",
+        "no": 6,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "本番環境で障害を起こしてしまいました。最初にすることは何ですか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "影響範囲の確認と復旧を優先し、並行して一次報告を出す。原因究明は復旧後。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "影響範囲を確認して復旧を優先し、並行して関係者に一次報告を出します。原因究明はそのあとです。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "順番がわかっている人は現場で強いよ。"
+          },
+          {
+            "id": "B",
+            "text": "ログを追って原因を特定します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "大事だが、止まっている間もお客様は待っているよ。"
+          },
+          {
+            "id": "C",
+            "text": "自分のコードを直して、黙って再デプロイします。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "報告のない復旧は、次の事故を呼ぶ。"
+          },
+          {
+            "id": "D",
+            "text": "誰の変更が原因かを先に突き止めます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "犯人探しは、あとにしてくれ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_07",
+        "no": 7,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "10年動いている読みにくいコードの改修を任されました。どう進めますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "現状の挙動を守るテストを用意し、小さく分けて置き換える。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "まず今の動きを守るテストを用意し、範囲を小さく区切って段階的に置き換えます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "その慎重さは、金額で言えば大きな価値だ。"
+          },
+          {
+            "id": "B",
+            "text": "読みづらいので、全面的に書き直します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "気持ちはわかるが、止まると売上が止まる。"
+          },
+          {
+            "id": "C",
+            "text": "動いているので触りません。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "延命策としては現実的だね。"
+          },
+          {
+            "id": "D",
+            "text": "最新の構成に一気に載せ替えます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それで会社が傾いた例を知っているよ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_08",
+        "no": 8,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "設計で最も重視することは何ですか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "変更されることを前提に、影響が広がらない境界を切ること。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "あとから必ず変わる前提で、変更の影響が広がらないように境界を切ることです。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "変化を前提にできる人は伸びるよ。"
+          },
+          {
+            "id": "B",
+            "text": "処理速度です。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "大事だが、それが最優先とは限らないな。"
+          },
+          {
+            "id": "C",
+            "text": "流行の構成に合わせることです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "流行は数年で変わるよ。"
+          },
+          {
+            "id": "D",
+            "text": "とにかく短く書くことです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "短さと読みやすさは別物だ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_09",
+        "no": 9,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "「画面が遅い」と苦情が来ました。どう切り分けますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "推測で直さず計測する。通信・DB・描画のどこで時間を使っているかを数字で確認する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "まず計測します。通信、データベース、描画のどこで時間を使っているかを数字で確かめてから手を入れます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "計測から入る、正解だ。"
+          },
+          {
+            "id": "B",
+            "text": "とりあえずデータベースに索引を追加します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "当たることもあるが、賭けだね。"
+          },
+          {
+            "id": "C",
+            "text": "サーバーのスペックを上げます。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "金で殴る前に、原因を知りたいな。"
+          },
+          {
+            "id": "D",
+            "text": "怪しいところを勘で直します。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "勘は、計測のあとに使うものだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_10",
+        "no": 10,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "生成AIを開発でどう使いますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "下書きや調査に使い、出力は自分で読んで検証してから採用する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "下書きと調査に使います。出てきたものは自分で読んで、根拠を確かめてから採用します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "道具として使えているね。"
+          },
+          {
+            "id": "B",
+            "text": "わからない部分は全部AIに書かせます。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "わからないまま入るコードが一番怖い。"
+          },
+          {
+            "id": "C",
+            "text": "力がつかなくなるので使いません。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "気持ちはわかるが、生産性では負けるよ。"
+          },
+          {
+            "id": "D",
+            "text": "動けば中身は気にしません。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……その姿勢が、事故を生むんだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_11",
+        "no": 11,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "個人情報を扱う画面を作ります。最低限守るべきことは何ですか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "入力値を信用せず、値を埋め込まない形で問い合わせを組み、権限確認と通信の暗号化を行う。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "入力値を信用せず、値を直接埋め込まない形で問い合わせを組み、権限の確認と通信の暗号化を必ず入れます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "そこを最低限と言えるのは頼もしい。"
+          },
+          {
+            "id": "B",
+            "text": "パスワードを暗号化して保存します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "必要だが、それだけでは足りないな。"
+          },
+          {
+            "id": "C",
+            "text": "管理画面のURLを推測されにくくします。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "隠すことは守ることではないよ。"
+          },
+          {
+            "id": "D",
+            "text": "まず動くものを作って、対策はあとで入れます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "その「あとで」は、たいてい来ないんだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_12",
+        "no": 12,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "利用者が10倍になり、データベースが限界です。どうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "まず遅い問い合わせと重複取得を潰し、キャッシュや読み取り分離を検討する。分割は最後の手段。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "先に遅い問い合わせと無駄な重複取得を潰し、次にキャッシュや読み取り用の分離を検討します。分割は最後です。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "順序が現実的だ。"
+          },
+          {
+            "id": "B",
+            "text": "サーバーを増やします。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "時間は稼げるね。"
+          },
+          {
+            "id": "C",
+            "text": "別の種類のデータベースに移行します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "移行そのものが大工事だよ。"
+          },
+          {
+            "id": "D",
+            "text": "利用者数を制限します。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……売上を捨てる案だね。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_13",
+        "no": 13,
+        "category": "技術",
+        "difficulty": "高",
+        "question": "「テストを書く時間はない」と言われたら、どうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "全部か無しかにせず、壊れたときの被害が大きい箇所に絞って書く。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "壊れたときの被害が大きい所に絞って書きます。全部やるか、まったくやらないかの二択にしません。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "投資判断としても正しいね。"
+          },
+          {
+            "id": "B",
+            "text": "時間がないなら、手動の確認で代えます。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "回数が増えると、それも高くつくよ。"
+          },
+          {
+            "id": "C",
+            "text": "テストは後回しにします。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "後回しは、なくなるのと同じだ。"
+          },
+          {
+            "id": "D",
+            "text": "テストは品質保証の担当の仕事だと伝えます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "線を引きすぎると、誰も守らなくなる。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_14",
+        "no": 14,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "見積もりが外れる原因は、何だと思いますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "作業を細かく分けていないため。分割し、不確実な部分に幅を持たせ、途中で補正する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "作業を細かく分けていないからです。分けて、読めない部分に幅を持たせ、進みながら直します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "見積もりを直せる人は貴重だ。"
+          },
+          {
+            "id": "B",
+            "text": "経験不足です。経験を積めば当たるようになります。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "経験だけでは当たらないんだよ。"
+          },
+          {
+            "id": "C",
+            "text": "割り込みの依頼が多いからです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "それも要因だが、外の話にしすぎだね。"
+          },
+          {
+            "id": "D",
+            "text": "見積もりは、そもそも当たらないものです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それでは商売にならないんだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_15",
+        "no": 15,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "後輩が同じミスを何度も繰り返します。あなたはどうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "人を責めず、手順や仕組みで再発を防げないかを一緒に考える。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "本人を責めず、手順や仕組みの側で防げないかを一緒に考えます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "仕組みに目が向くのは、経営に近い視点だ。"
+          },
+          {
+            "id": "B",
+            "text": "もう一度、丁寧に教えます。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "優しいね。ただ3回目には工夫が必要だ。"
+          },
+          {
+            "id": "C",
+            "text": "厳しく注意します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "恐怖で減るミスは、隠れるだけだよ。"
+          },
+          {
+            "id": "D",
+            "text": "自分でやった方が早いので、代わりにやります。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "それでは、あなたが潰れる。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_16",
+        "no": 16,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "給与と裁量、どちらを取りますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "順序と理由を示して答える。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "今は裁量です。任される範囲を広げた結果として、給与で評価されたいです。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "順番が見えている答えだ。"
+          },
+          {
+            "id": "B",
+            "text": "生活があるので給与です。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "正直で構わないよ。"
+          },
+          {
+            "id": "C",
+            "text": "どちらでも構いません。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "希望がないと、こちらも配置に困る。"
+          },
+          {
+            "id": "D",
+            "text": "両方すぐに欲しいです。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……まずは一つ、結果を見せてくれ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_17",
+        "no": 17,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "会社の方針に納得できないとき、あなたはどうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "理由を確認し、根拠を添えて一度は意見を伝える。決まったら全力で実行する。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "理由を聞き、根拠を添えて一度は意見を伝えます。その上で決まったなら、全力で実行します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "その姿勢の人と、会社を作りたいね。"
+          },
+          {
+            "id": "B",
+            "text": "上の判断に従います。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "従うだけの人は、増えすぎると危ないんだ。"
+          },
+          {
+            "id": "C",
+            "text": "納得できるまでは従いません。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "全員がそうすると、会社は動かないよ。"
+          },
+          {
+            "id": "D",
+            "text": "黙って辞めます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "せめて一度は言ってくれ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_18",
+        "no": 18,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "独学とチームでの学習、どちらが伸びると思いますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "手を動かして詰まる経験と、人に説明して指摘をもらう工程の組み合わせが効く。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "自分で手を動かして詰まり、それを人に説明して指摘をもらう。この組み合わせが一番伸びます。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "学び方をわかっているね。"
+          },
+          {
+            "id": "B",
+            "text": "独学です。自分のペースで進められます。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "自走できるのは長所だ。"
+          },
+          {
+            "id": "C",
+            "text": "チームです。教えてもらえるので早いです。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "教わる前提が強すぎるかな。"
+          },
+          {
+            "id": "D",
+            "text": "学習は業務時間内だけで足りると思います。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……この業界では、少し厳しい考えだ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_19",
+        "no": 19,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "レビューで自分のコードを全面的に否定されたら、どうしますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "指摘の理由を確認し、次に同じ指摘が出ないよう基準として残す。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "指摘の理由を確認して、次に同じ指摘が出ないように自分の基準としてメモに残します。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "一回の指摘を資産にできる人だ。"
+          },
+          {
+            "id": "B",
+            "text": "素直に直します。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "素直さは大事だよ。"
+          },
+          {
+            "id": "C",
+            "text": "自分の書き方も間違っていないと反論します。",
+            "score": 3,
+            "isCorrect": false,
+            "reaction": "議論はいいが、目的を忘れないでほしい。"
+          },
+          {
+            "id": "D",
+            "text": "レビューが怖いので、提出を遅らせます。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "遅れるほど、怖くなるだけだよ。"
+          }
+        ]
+      },
+      {
+        "id": "ceo_20",
+        "no": 20,
+        "category": "人柄",
+        "difficulty": "高",
+        "question": "最後に、何か質問はありますか。",
+        "hintSkill": null,
+        "hintRequiredLevel": 0,
+        "modelAnswer": "入社後の期待値や評価基準を確認する、仕事に踏み込んだ質問をする。",
+        "choices": [
+          {
+            "id": "A",
+            "text": "入社後の3ヶ月で、どこまでできていれば期待に届いているか教えてください。",
+            "score": 10,
+            "isCorrect": true,
+            "reaction": "……いい質問だ。答えは、内定通知に書いておくよ。"
+          },
+          {
+            "id": "B",
+            "text": "研修制度について教えてください。",
+            "score": 6,
+            "isCorrect": false,
+            "reaction": "気になるところだよね。"
+          },
+          {
+            "id": "C",
+            "text": "残業と休日はどれくらいですか。",
+            "score": 2,
+            "isCorrect": false,
+            "reaction": "聞いて構わないが、一番最後の一問がそれか。"
+          },
+          {
+            "id": "D",
+            "text": "特にありません。",
+            "score": 0,
+            "isCorrect": false,
+            "reaction": "……そうか。ここまでだね。"
+          }
+        ]
+      }
+    ]
+  }
+}
