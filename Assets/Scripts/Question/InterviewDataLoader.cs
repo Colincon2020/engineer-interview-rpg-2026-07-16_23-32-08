@@ -117,10 +117,6 @@ public static class InterviewDataLoader
             case "Assembly":
                 skillType = SkillType.Assembly;
                 return true;
-            case "Cuda":
-            case "CUDA":
-                skillType = SkillType.Cuda;
-                return true;
             case "Python":
                 skillType = SkillType.Python;
                 return true;
@@ -134,14 +130,6 @@ public static class InterviewDataLoader
             case "JavaScript":
             case "JS":
                 skillType = SkillType.JavaScript;
-                return true;
-            case "HTML":
-            case "Html":
-                skillType = SkillType.Html;
-                return true;
-            case "CSS":
-            case "Css":
-                skillType = SkillType.Css;
                 return true;
             default:
                 Debug.LogWarning($"未対応の hintSkill です: {hintSkill}");

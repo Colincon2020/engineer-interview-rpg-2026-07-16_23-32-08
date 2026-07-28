@@ -1,7 +1,6 @@
 /// <summary>
 /// 特訓で伸ばせるスキル（プログラミング言語）の種別。
-/// 作戦会議メモの「JAVA、SQL、C#、C++、C、アセンブリ、Cuda、Python、VBA、Swift、
-/// （JavaScript・HTML・CSS）」に対応する。
+/// JAVA、SQL、C#、C++、C、アセンブリ、Python、VBA、Swift、JavaScript の10種。
 /// </summary>
 public enum SkillType
 {
@@ -11,13 +10,10 @@ public enum SkillType
     Cpp,
     C,
     Assembly,
-    Cuda,
     Python,
     Vba,
     Swift,
     JavaScript,
-    Html,
-    Css,
 }
 
 /// <summary>
@@ -42,8 +38,6 @@ public static class SkillTypeUtil
                 return "C";
             case SkillType.Assembly:
                 return "アセンブリ";
-            case SkillType.Cuda:
-                return "Cuda";
             case SkillType.Python:
                 return "Python";
             case SkillType.Vba:
@@ -52,10 +46,6 @@ public static class SkillTypeUtil
                 return "Swift";
             case SkillType.JavaScript:
                 return "JavaScript";
-            case SkillType.Html:
-                return "HTML";
-            case SkillType.Css:
-                return "CSS";
             default:
                 return skill.ToString();
         }

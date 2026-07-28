@@ -265,7 +265,7 @@
         "category": "技術",
         "difficulty": "中",
         "question": "GPU（CUDA）で速くなる処理と、向かない処理を教えてください。",
-        "hintSkill": "Cuda",
+        "hintSkill": "C",
         "hintRequiredLevel": 3,
         "modelAnswer": "同じ計算を大量のデータに並列適用する処理は速く、分岐が多い逐次処理やデータ転送が支配的な処理は向かない。",
         "choices": [
