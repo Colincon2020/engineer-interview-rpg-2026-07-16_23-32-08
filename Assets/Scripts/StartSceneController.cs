@@ -1,12 +1,11 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.InputSystem; // 追加
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// タイトル画面の制御。
-/// 男女を選択してから特訓シーンへ進む。
+/// タイトル表示 → 性別選択 → 特訓シーンへ進む。
 /// </summary>
 public class StartSceneController : MonoBehaviour
 {
@@ -33,6 +32,10 @@ public class StartSceneController : MonoBehaviour
     [SerializeField]
     private Color normalColor = Color.white;
 
+    [Header("画面切替")]
+    public GameObject[] titleElements;
+    public GameObject[] genderSelectElements;
+
     private PlayerGender selectedGender = PlayerGender.Male;
     private bool isTransitioning;
 
@@ -42,10 +45,8 @@ public class StartSceneController : MonoBehaviour
         WireButtons();
         ApplySelectionVisual();
     }
-    public GameObject[] titleElements;
-    public GameObject[] genderSelectElements;
 
-    void Update()
+    private void Update()
     {
         if (isTransitioning)
         {
@@ -55,6 +56,19 @@ public class StartSceneController : MonoBehaviour
         var keyboard = Keyboard.current;
         if (keyboard == null)
         {
+            return;
+        }
+
+        // タイトル表示中は Enter / Space で性別選択へ
+        if (IsTitleVisible())
+        {
+            if (keyboard.enterKey.wasPressedThisFrame
+                || keyboard.numpadEnterKey.wasPressedThisFrame
+                || keyboard.spaceKey.wasPressedThisFrame)
+            {
+                ShowGenderSelect();
+            }
+
             return;
         }
 
@@ -76,6 +90,32 @@ public class StartSceneController : MonoBehaviour
         }
     }
 
+    /// <summary>タイトル要素を隠し、性別選択 UI を表示する。</summary>
+    public void ShowGenderSelect()
+    {
+        if (titleElements != null)
+        {
+            foreach (GameObject obj in titleElements)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(false);
+                }
+            }
+        }
+
+        if (genderSelectElements != null)
+        {
+            foreach (GameObject obj in genderSelectElements)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(true);
+                }
+            }
+        }
+    }
+
     /// <summary>男性を選択する（UI ボタンからも呼べる）。</summary>
     public void SelectMale()
     {
@@ -90,8 +130,29 @@ public class StartSceneController : MonoBehaviour
         ApplySelectionVisual();
     }
 
+    /// <summary>シーン上の男性ボタンから呼ばれる。</summary>
+    public void OnSelectMale()
+    {
+        selectedGender = PlayerGender.Male;
+        ApplySelectionVisual();
+        PersistGenderAndLoadScene(PlayerGender.Male);
+    }
+
+    /// <summary>シーン上の女性ボタンから呼ばれる。</summary>
+    public void OnSelectFemale()
+    {
+        selectedGender = PlayerGender.Female;
+        ApplySelectionVisual();
+        PersistGenderAndLoadScene(PlayerGender.Female);
+    }
+
     /// <summary>選択した性別を保存し、特訓シーンへ遷移する。</summary>
     public void ConfirmAndStart()
+    {
+        PersistGenderAndLoadScene(selectedGender);
+    }
+
+    private void PersistGenderAndLoadScene(PlayerGender gender)
     {
         if (isTransitioning)
         {
@@ -99,8 +160,24 @@ public class StartSceneController : MonoBehaviour
         }
 
         isTransitioning = true;
-        GameSession.SetSelectedGender(selectedGender);
-        SceneManager.LoadScene(gameSceneName);
+        GameSession.SetSelectedGender(gender);
+
+        if (GameDataManager.Instance != null)
+        {
+            GameDataManager.Instance.SelectedGender = gender == PlayerGender.Female
+                ? GameDataManager.Gender.Female
+                : GameDataManager.Gender.Male;
+        }
+
+        SceneTransition.Load(gameSceneName);
+    }
+
+    private bool IsTitleVisible()
+    {
+        return titleElements != null
+            && titleElements.Length > 0
+            && titleElements[0] != null
+            && titleElements[0].activeSelf;
     }
 
     private void WireButtons()
@@ -237,38 +314,7 @@ public class StartSceneController : MonoBehaviour
         tmp.fontSize = 22f;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.color = Color.white;
-        tmp.enableWordWrapping = true;
+        tmp.textWrappingMode = TextWrappingModes.Normal;
         return tmp;
-    }
-}
-        if (titleElements[0].activeSelf && Keyboard.current != null &&
-            (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame))
-        {
-            ShowGenderSelect();
-        }
-    }
-
-    public void ShowGenderSelect()
-    {
-        foreach (GameObject obj in titleElements)
-        {
-            obj.SetActive(false);
-        }
-        foreach (GameObject obj in genderSelectElements)
-        {
-            obj.SetActive(true);
-        }
-    }
-
-    public void OnSelectMale()
-    {
-        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Male;
-        SceneManager.LoadScene("ActionScene");
-    }
-
-    public void OnSelectFemale()
-    {
-        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Female;
-        SceneManager.LoadScene("ActionScene");
     }
 }

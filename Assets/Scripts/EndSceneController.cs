@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ゲームオーバー画面（EndScene）の制御。
@@ -158,6 +157,6 @@ public class EndSceneController : MonoBehaviour
     private void DoSceneTransition()
     {
         StopBGM();
-        SceneManager.LoadScene(titleSceneName);
+        SceneTransition.Load(titleSceneName);
     }
 }

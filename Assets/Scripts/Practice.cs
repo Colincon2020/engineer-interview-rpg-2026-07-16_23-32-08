@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 練習アクションのルールと実行ロジック。
@@ -99,7 +98,7 @@ public static class Practice
         // 練習でメンタルを使い切ったらゲームオーバーとしてエンドシーンへ。
         if (costType == CostType.Mental && player.Mental <= 0)
         {
-            SceneManager.LoadScene(EndSceneName);
+            SceneTransition.Load(EndSceneName);
         }
 
         return new Result(true, costType, newLevel);

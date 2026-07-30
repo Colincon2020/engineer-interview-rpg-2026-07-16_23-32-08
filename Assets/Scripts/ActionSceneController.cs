@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -216,7 +215,7 @@ public class ActionSceneController : MonoBehaviour
             GameSession.SetMental(player.Mental);
         }
 
-        SceneManager.LoadScene(InterviewSceneName);
+        SceneTransition.Load(InterviewSceneName);
     }
 
     private void RefreshStatusTexts()
@@ -495,7 +494,7 @@ public class ActionSceneController : MonoBehaviour
 
     private static Button FindSleepButtonIncludingInactive()
     {
-        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include);
         foreach (Button button in buttons)
         {
             if (button != null && button.name == "SleepButton")

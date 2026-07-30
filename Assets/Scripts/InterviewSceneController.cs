@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -463,7 +462,7 @@ public class InterviewSceneController : MonoBehaviour
 
     private static void ReturnToActionScene()
     {
-        SceneManager.LoadScene(ActionSceneName);
+        SceneTransition.Load(ActionSceneName);
     }
 
     private void SetAnswerButtonsActive(bool active)
