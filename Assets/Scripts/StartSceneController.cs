@@ -1,23 +1,42 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; // 追加
 
 public class StartSceneController : MonoBehaviour
 {
-    [SerializeField] 
-    private string gameSceneName = "SelectProtagonistScene";
+    public GameObject[] titleElements;
+    public GameObject[] genderSelectElements;
 
-    private void Update()
+    void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null)
+        if (titleElements[0].activeSelf && Keyboard.current != null &&
+            (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame))
         {
-            return;
+            ShowGenderSelect();
         }
+    }
 
-        if (keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame)
+    public void ShowGenderSelect()
+    {
+        foreach (GameObject obj in titleElements)
         {
-            SceneManager.LoadScene(gameSceneName);
+            obj.SetActive(false);
         }
+        foreach (GameObject obj in genderSelectElements)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    public void OnSelectMale()
+    {
+        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Male;
+        SceneManager.LoadScene("ActionScene");
+    }
+
+    public void OnSelectFemale()
+    {
+        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Female;
+        SceneManager.LoadScene("ActionScene");
     }
 }
