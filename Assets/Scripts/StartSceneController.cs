@@ -1,8 +1,11 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
 using UnityEngine.UI;
+=======
+using UnityEngine.InputSystem; // 追加
+>>>>>>> ff9f99f3e40e3e5f984d1924ea8a8000b78897cf
 
 /// <summary>
 /// タイトル画面の制御。
@@ -10,6 +13,7 @@ using UnityEngine.UI;
 /// </summary>
 public class StartSceneController : MonoBehaviour
 {
+<<<<<<< HEAD
     [Header("シーン遷移")]
     [SerializeField]
     private string gameSceneName = "ActionScene";
@@ -42,9 +46,14 @@ public class StartSceneController : MonoBehaviour
         WireButtons();
         ApplySelectionVisual();
     }
+=======
+    public GameObject[] titleElements;
+    public GameObject[] genderSelectElements;
+>>>>>>> ff9f99f3e40e3e5f984d1924ea8a8000b78897cf
 
-    private void Update()
+    void Update()
     {
+<<<<<<< HEAD
         if (isTransitioning)
         {
             return;
@@ -239,3 +248,36 @@ public class StartSceneController : MonoBehaviour
         return tmp;
     }
 }
+=======
+        if (titleElements[0].activeSelf && Keyboard.current != null &&
+            (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame))
+        {
+            ShowGenderSelect();
+        }
+    }
+
+    public void ShowGenderSelect()
+    {
+        foreach (GameObject obj in titleElements)
+        {
+            obj.SetActive(false);
+        }
+        foreach (GameObject obj in genderSelectElements)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    public void OnSelectMale()
+    {
+        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Male;
+        SceneManager.LoadScene("ActionScene");
+    }
+
+    public void OnSelectFemale()
+    {
+        GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Female;
+        SceneManager.LoadScene("ActionScene");
+    }
+}
+>>>>>>> ff9f99f3e40e3e5f984d1924ea8a8000b78897cf
