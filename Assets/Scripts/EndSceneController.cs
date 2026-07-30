@@ -141,6 +141,9 @@ public class EndSceneController : MonoBehaviour
 
         isTransitioning = true;
 
+        // 次回タイトルで性別を選び直せるようにする。
+        GameSession.Reset();
+
         // 効果音を再生
         if (enterSE != null)
         {

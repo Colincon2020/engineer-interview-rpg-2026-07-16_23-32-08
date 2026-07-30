@@ -41,14 +41,14 @@ public static class InterviewDataLoader
     public static InterviewerFileData LoadPresident() => LoadInterviewer(InterviewerType.President);
 
     /// <summary>
-    /// JSON の質問文だけを既存の <see cref="InterviewQuestion"/> リストへ変換する。
+    /// JSON の質問データ本体を出題順で返す。
     /// randomize が true の場合は出題前にシャッフルする。
     /// </summary>
-    public static List<InterviewQuestion> ToInterviewQuestions(
+    public static List<InterviewQuestionData> ToQuestionDataList(
         InterviewerFileData fileData,
         int? askCount = null)
     {
-        var result = new List<InterviewQuestion>();
+        var result = new List<InterviewQuestionData>();
         if (fileData?.interviewer?.questions == null)
         {
             return result;
@@ -74,10 +74,82 @@ public static class InterviewDataLoader
                 continue;
             }
 
+            result.Add(q);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// JSON の質問文だけを既存の <see cref="InterviewQuestion"/> リストへ変換する。
+    /// randomize が true の場合は出題前にシャッフルする。
+    /// </summary>
+    public static List<InterviewQuestion> ToInterviewQuestions(
+        InterviewerFileData fileData,
+        int? askCount = null)
+    {
+        var result = new List<InterviewQuestion>();
+        foreach (InterviewQuestionData q in ToQuestionDataList(fileData, askCount))
+        {
             result.Add(new InterviewQuestion(q.question));
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// 選択肢の加点（choice.score × difficultyWeight）を整数で返す。
+    /// </summary>
+    public static int CalculateChoiceScore(
+        InterviewQuestionData question,
+        InterviewChoiceData choice,
+        ScoringRuleData scoring)
+    {
+        if (choice == null)
+        {
+            return 0;
+        }
+
+        float weight = scoring != null
+            ? scoring.GetDifficultyWeight(question?.difficulty)
+            : 1f;
+        return Mathf.RoundToInt(choice.score * weight);
+    }
+
+    /// <summary>
+    /// 各面接の通過ライン。passRules が無ければ finalPassMinScore(200)/maxTotalScore(625) で按分。
+    /// </summary>
+    public static int GetStagePassScore(int maxScore, ScoringRuleData scoring = null)
+    {
+        if (maxScore <= 0)
+        {
+            return 0;
+        }
+
+        PassRulesData rules = scoring?.passRules;
+        int numerator = rules != null && rules.stagePassRatioNumerator > 0
+            ? rules.stagePassRatioNumerator
+            : (rules != null && rules.finalPassMinScore > 0 ? rules.finalPassMinScore : 200);
+        int denominator = rules != null && rules.stagePassRatioDenominator > 0
+            ? rules.stagePassRatioDenominator
+            : (scoring != null && scoring.maxTotalScore > 0 ? scoring.maxTotalScore : 625);
+
+        return Mathf.CeilToInt(maxScore * (float)numerator / denominator);
+    }
+
+    /// <summary>各面接の通過判定。</summary>
+    public static bool IsStagePass(int score, int maxScore, ScoringRuleData scoring = null)
+    {
+        return score >= GetStagePassScore(maxScore, scoring);
+    }
+
+    /// <summary>最終合否（合計スコアが C 以上か）。</summary>
+    public static bool IsFinalPass(int totalScore, ScoringRuleData scoring = null)
+    {
+        int threshold = scoring?.passRules != null && scoring.passRules.finalPassMinScore > 0
+            ? scoring.passRules.finalPassMinScore
+            : 200;
+        return totalScore >= threshold;
     }
 
     /// <summary>

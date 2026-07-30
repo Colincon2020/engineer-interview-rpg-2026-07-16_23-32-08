@@ -57,6 +57,14 @@
         "label": "お祈りメール"
       }
     ],
-    "hintRule": "technical / mixed の質問で player.skill[hintSkill].level >= hintRequiredLevel のとき、isCorrect の選択肢を赤色で表示する。"
+    "hintRule": "technical / mixed の質問で player.skill[hintSkill].level >= hintRequiredLevel のとき、isCorrect の選択肢を赤色で表示する。",
+    "passRules": {
+      "finalPassMinScore": 200,
+      "finalFailRank": "D",
+      "stagePassMode": "proportional",
+      "stagePassRatioNumerator": 200,
+      "stagePassRatioDenominator": 625,
+      "note": "各面接 passScore = ceil(maxScore * 200 / 625)。最終合格は totalScore >= 200（C以上）。不合格時は ActionScene へ戻る。"
+    }
   }
 }

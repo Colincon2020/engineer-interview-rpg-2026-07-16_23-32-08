@@ -79,14 +79,33 @@ public class ActionSceneController : MonoBehaviour
     [SerializeField]
     private Image characterImage;
 
+    [Header("キャラ表情切替（男性）")]
     [SerializeField]
-    private Sprite normalFace;
+    private Sprite maleNormalFace;
 
     [SerializeField]
-    private Sprite tiredFace;
+    private Sprite maleTiredFace;
 
     [SerializeField]
-    private Sprite exhaustedFace;
+    private Sprite maleExhaustedFace;
+
+    [Header("キャラ表情切替（女性）")]
+    [SerializeField]
+    private Sprite femaleNormalFace;
+
+    [SerializeField]
+    private Sprite femaleTiredFace;
+
+    [SerializeField]
+    private Sprite femaleExhaustedFace;
+
+    [Header("デバッグ（ActionScene単体テスト用）")]
+    [SerializeField]
+    [Tooltip("ON のとき GameSession を無視し、下の Test Gender を使う（Editor のみ）")]
+    private bool overrideGenderForTest;
+
+    [SerializeField]
+    private PlayerGender testGender = PlayerGender.Female;
 
     private void Awake()
     {
@@ -96,6 +115,9 @@ public class ActionSceneController : MonoBehaviour
         {
             player = gameObject.AddComponent<Player>();
         }
+
+        // タイトルで選んだ性別を Player へ反映する。
+        ApplySessionGender();
 
         if (skillSheetUI != null)
         {
@@ -189,6 +211,11 @@ public class ActionSceneController : MonoBehaviour
     /// <summary>1週間の特訓が終わったら面接シーンへ遷移する。</summary>
     private void OnWeekFinished()
     {
+        if (player != null)
+        {
+            GameSession.SetMental(player.Mental);
+        }
+
         SceneManager.LoadScene(InterviewSceneName);
     }
 
@@ -313,7 +340,28 @@ public class ActionSceneController : MonoBehaviour
     }
 
     /// <summary>
-    /// スタミナに応じて CharacterImage の表情を切り替える。
+    /// タイトル選択結果（<see cref="GameSession"/>）を Player に適用する。
+    /// Editor で overrideGenderForTest が ON のときは Test Gender を優先する。
+    /// </summary>
+    private void ApplySessionGender()
+    {
+        if (player == null)
+        {
+            return;
+        }
+
+#if UNITY_EDITOR
+        if (overrideGenderForTest)
+        {
+            player.SetGender(testGender);
+            return;
+        }
+#endif
+        player.SetGender(GameSession.SelectedGender);
+    }
+
+    /// <summary>
+    /// 性別とスタミナに応じて CharacterImage の表情を切り替える。
     /// 2以上→通常、1→疲労、0→疲労困憊。
     /// </summary>
     private void RefreshCharacterFace()
@@ -323,24 +371,40 @@ public class ActionSceneController : MonoBehaviour
             return;
         }
 
+        Sprite normal;
+        Sprite tired;
+        Sprite exhausted;
+        if (player.Gender == PlayerGender.Female)
+        {
+            normal = femaleNormalFace;
+            tired = femaleTiredFace;
+            exhausted = femaleExhaustedFace;
+        }
+        else
+        {
+            normal = maleNormalFace;
+            tired = maleTiredFace;
+            exhausted = maleExhaustedFace;
+        }
+
         int stamina = player.LifePoints;
         if (stamina <= 0)
         {
-            if (exhaustedFace != null)
+            if (exhausted != null)
             {
-                characterImage.sprite = exhaustedFace;
+                characterImage.sprite = exhausted;
             }
         }
         else if (stamina == 1)
         {
-            if (tiredFace != null)
+            if (tired != null)
             {
-                characterImage.sprite = tiredFace;
+                characterImage.sprite = tired;
             }
         }
-        else if (normalFace != null)
+        else if (normal != null)
         {
-            characterImage.sprite = normalFace;
+            characterImage.sprite = normal;
         }
     }
 

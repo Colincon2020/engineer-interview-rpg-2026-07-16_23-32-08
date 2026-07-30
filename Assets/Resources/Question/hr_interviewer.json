@@ -15,9 +15,9 @@
     "difficulty": "易",
     "difficultyWeight": 1.0,
     "questionCount": 9,
-    "askCount": 9,
-    "randomize": false,
-    "maxScore": 90,
+    "askCount": 3,
+    "randomize": true,
+    "maxScore": 30,
     "questions": [
       {
         "id": "hr_01",

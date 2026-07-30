@@ -91,6 +91,18 @@ public class RankRuleData
     public string label;
 }
 
+/// <summary>面接の合格・通過ラインルール。</summary>
+[Serializable]
+public class PassRulesData
+{
+    public int finalPassMinScore;
+    public string finalFailRank;
+    public string stagePassMode;
+    public int stagePassRatioNumerator;
+    public int stagePassRatioDenominator;
+    public string note;
+}
+
 /// <summary>採点ルール。</summary>
 [Serializable]
 public class ScoringRuleData
@@ -102,6 +114,7 @@ public class ScoringRuleData
     public SalaryRuleData salary;
     public RankRuleData[] ranks;
     public string hintRule;
+    public PassRulesData passRules;
 
     /// <summary>難易度文字列（易 / 中 / 高）に対応する重みを返す。未定義なら 1。</summary>
     public float GetDifficultyWeight(string difficulty)

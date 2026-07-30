@@ -129,6 +129,9 @@ public abstract class Interviewer : MonoBehaviour
     /// <summary>最後に読み込んだ JSON 本体（採点・ヒント判定用）。未読込なら null。</summary>
     public InterviewerFileData LoadedFileData { get; private set; }
 
+    /// <summary>出題用の質問データ本体。未読込なら空。</summary>
+    private readonly List<InterviewQuestionData> questionDataList = new List<InterviewQuestionData>();
+
     protected virtual void Awake()
     {
         if (loadQuestionsFromResources)
@@ -149,8 +152,21 @@ public abstract class Interviewer : MonoBehaviour
         }
 
         LoadedFileData = data;
+        questionDataList.Clear();
+        questionDataList.AddRange(InterviewDataLoader.ToQuestionDataList(data));
         SetQuestions(InterviewDataLoader.ToInterviewQuestions(data));
         return questions.Count > 0;
+    }
+
+    /// <summary>出題用の質問データ一覧を返す（選択肢採点 UI 向け）。</summary>
+    public IReadOnlyList<InterviewQuestionData> GetQuestionDataList()
+    {
+        if (questionDataList.Count == 0 && LoadedFileData != null)
+        {
+            questionDataList.AddRange(InterviewDataLoader.ToQuestionDataList(LoadedFileData));
+        }
+
+        return questionDataList;
     }
 
     /// <summary>

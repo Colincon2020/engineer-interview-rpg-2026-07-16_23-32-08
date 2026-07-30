@@ -2,6 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>主人公の性別（顔アップ・立ち絵の切替に使用）。</summary>
+public enum PlayerGender
+{
+    Male = 0,
+    Female = 1,
+}
+
 /// <summary>
 /// プレイヤー（転生したエンジニア）を定義するオブジェクト。
 /// 1週間の特訓中の状態（日数・ライフポイント・メンタル・各スキルの習熟度）を保持し、
@@ -28,6 +35,10 @@ public class Player : MonoBehaviour
 
     // ---- 現在の状態 ----
 
+    [Header("主人公")]
+    [SerializeField]
+    private PlayerGender gender = PlayerGender.Male;
+
     [Header("現在の状態（実行中に確認用）")]
     [SerializeField]
     private int currentDay = 1;
@@ -42,6 +53,9 @@ public class Player : MonoBehaviour
     private readonly Dictionary<SkillType, int> skillLevels = new Dictionary<SkillType, int>();
 
     // ---- 公開プロパティ ----
+
+    /// <summary>主人公の性別。</summary>
+    public PlayerGender Gender => gender;
 
     /// <summary>現在の日数（1 〜 <see cref="TotalDays"/>）。</summary>
     public int CurrentDay => currentDay;
@@ -77,13 +91,28 @@ public class Player : MonoBehaviour
         ResetState();
     }
 
-    /// <summary>状態を初期値に戻す（ゲーム開始 / リトライ時に呼ぶ）。</summary>
+    /// <summary>状態を初期値に戻す（ゲーム開始 / リトライ時に呼ぶ）。性別は維持する。</summary>
     public void ResetState()
     {
         currentDay = 1;
         lifePoints = MaxLifePoints;
         mental = MaxMental;
         skillLevels.Clear();
+        StateChanged?.Invoke();
+    }
+
+    /// <summary>
+    /// 主人公の性別を設定する（タイトル選択結果の反映などに使う）。
+    /// 変更時は <see cref="StateChanged"/> を発火し、表情 UI などを更新させる。
+    /// </summary>
+    public void SetGender(PlayerGender newGender)
+    {
+        if (gender == newGender)
+        {
+            return;
+        }
+
+        gender = newGender;
         StateChanged?.Invoke();
     }
 
