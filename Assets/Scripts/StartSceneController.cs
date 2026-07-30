@@ -31,12 +31,12 @@ public class StartSceneController : MonoBehaviour
     public void OnSelectMale()
     {
         GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Male;
-        SceneManager.LoadScene("TrainingScene");
+        SceneManager.LoadScene("ActionScene");
     }
 
     public void OnSelectFemale()
     {
         GameDataManager.Instance.SelectedGender = GameDataManager.Gender.Female;
-        SceneManager.LoadScene("TrainingScene");
+        SceneManager.LoadScene("ActionScene");
     }
 }
