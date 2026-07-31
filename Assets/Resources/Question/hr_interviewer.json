@@ -39,21 +39,21 @@
           {
             "id": "B",
             "text": "未経験からでも育ててもらえる環境だと聞いたからです。",
-            "score": 6,
+            "score": 3,
             "isCorrect": false,
             "reaction": "受け身に聞こえますが、素直さは伝わりました。"
           },
           {
             "id": "C",
             "text": "家から近く、通いやすいからです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "……立地は大事ですけどね。"
           },
           {
             "id": "D",
             "text": "正直どこでもよかったのですが、求人が出ていたので。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "正直なのは美点ですが、それだけでは困ります。"
           }
@@ -79,21 +79,21 @@
           {
             "id": "B",
             "text": "誰とでもすぐ打ち解けられるところです。",
-            "score": 6,
+            "score": 3,
             "isCorrect": false,
             "reaction": "チーム開発では助かりますね。"
           },
           {
             "id": "C",
             "text": "体力です。徹夜でも平気です。",
-            "score": 2,
+            "score": 0,
             "isCorrect": false,
             "reaction": "……その働き方は当社では推奨していません。"
           },
           {
             "id": "D",
             "text": "強みと言えるものは、特にありません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "何かあるはずなんですけどね……。"
           }
@@ -119,21 +119,21 @@
           {
             "id": "B",
             "text": "人に頼るのが苦手ですが、最近は早めに相談するよう意識しています。",
-            "score": 7,
+            "score": 4,
             "isCorrect": false,
             "reaction": "改善しようとしている姿勢は伝わります。"
           },
           {
             "id": "C",
             "text": "弱みは特にありません。",
-            "score": 2,
+            "score": 0,
             "isCorrect": false,
             "reaction": "……自己分析の機会かもしれませんね。"
           },
           {
             "id": "D",
             "text": "朝が弱くて、遅刻しがちです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは、まず直していただかないと。"
           }
@@ -159,21 +159,21 @@
           {
             "id": "B",
             "text": "多数決で決めて、決まったことには従います。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "決着はしますね。中身の議論も見たいところです。"
           },
           {
             "id": "C",
             "text": "経験のある人の意見に合わせます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "それだけだと、あなたの視点が消えてしまいます。"
           },
           {
             "id": "D",
             "text": "納得できるまで自分の意見を主張し続けます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……手が止まってしまいますね。"
           }
@@ -199,21 +199,21 @@
           {
             "id": "B",
             "text": "手に職がつき、長く働ける仕事だと考えたからです。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "現実的な理由ですね。"
           },
           {
             "id": "C",
             "text": "在宅で働けそうだからです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "働き方は選べますが、それが目的だと厳しいですね。"
           },
           {
             "id": "D",
             "text": "稼げると聞いたからです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……最初に来る理由がそれですか。"
           }
@@ -239,21 +239,21 @@
           {
             "id": "B",
             "text": "とにかく長い時間、教材を読み込みました。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "量は正義……とも言い切れませんが、努力は認めます。"
           },
           {
             "id": "C",
             "text": "その日の気分が乗る言語を触っていました。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "楽しむのは大事ですが、積み上がりにくいですね。"
           },
           {
             "id": "D",
             "text": "体力が尽きたら寝て、あとは気合で乗り切りました。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "気合の前に計画をお願いしたいです。"
           }
@@ -279,21 +279,21 @@
           {
             "id": "B",
             "text": "自力で解決できるまで粘ります。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "粘りは長所ですが、抱え込みすぎないように。"
           },
           {
             "id": "C",
             "text": "すぐ先輩に聞きます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "早いのはいいですが、少しは自分で触ってほしいですね。"
           },
           {
             "id": "D",
             "text": "わからないところは飛ばして進めます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……あとで誰かが困ることになりますよ。"
           }
@@ -319,21 +319,21 @@
           {
             "id": "B",
             "text": "専門分野を一つ決めて、深く掘りたいです。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "分野が決まったらまた聞かせてください。"
           },
           {
             "id": "C",
             "text": "その時の流行に合わせて考えます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "柔軟ではありますが、軸が見えませんね。"
           },
           {
             "id": "D",
             "text": "まだ考えていません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "この場で少し考えてみてもいいんですよ。"
           }
@@ -359,21 +359,21 @@
           {
             "id": "B",
             "text": "散歩など体を動かして気分を切り替えました。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "いい習慣ですね。"
           },
           {
             "id": "C",
             "text": "気合で押し切りました。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "……毎回それでは持ちませんよ。"
           },
           {
             "id": "D",
             "text": "限界まで詰め込んで、倒れるまで続けました。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは心配になります。"
           }

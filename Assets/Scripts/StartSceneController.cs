@@ -36,14 +36,116 @@ public class StartSceneController : MonoBehaviour
     public GameObject[] titleElements;
     public GameObject[] genderSelectElements;
 
+    [Header("BGM設定")]
+    [SerializeField]
+    [Tooltip("タイトル画面で再生するBGM")]
+    private AudioClip bgmClip;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    [Tooltip("BGMの音量")]
+    private float bgmVolume = 0.5f;
+
+    [SerializeField]
+    [Tooltip("ループ再生するか")]
+    private bool bgmLoop = true;
+
+    [Header("効果音設定")]
+    [SerializeField]
+    [Tooltip("クリック・決定時の効果音")]
+    private AudioClip clickSE;
+
+    [SerializeField]
+    [Tooltip("選択切替時の効果音")]
+    private AudioClip selectSE;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    [Tooltip("効果音の音量")]
+    private float seVolume = 1.0f;
+
+    [SerializeField]
+    [Tooltip("シーン遷移前の待機時間（秒）")]
+    private float transitionWaitTime = 0.5f;
+
     private PlayerGender selectedGender = PlayerGender.Male;
     private bool isTransitioning;
+    private AudioSource bgmAudioSource;
+    private AudioSource seAudioSource;
 
     private void Awake()
     {
-        EnsureSelectionUi();
+        SetupAudioSources();
         WireButtons();
         ApplySelectionVisual();
+    }
+
+    private void Start()
+    {
+        PlayBGM();
+    }
+
+    private void SetupAudioSources()
+    {
+        // BGM用AudioSourceをセットアップ
+        bgmAudioSource = GetComponent<AudioSource>();
+        if (bgmAudioSource == null)
+        {
+            bgmAudioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        bgmAudioSource.playOnAwake = false;
+        bgmAudioSource.loop = bgmLoop;
+
+        // SE用AudioSourceをセットアップ
+        seAudioSource = gameObject.AddComponent<AudioSource>();
+        seAudioSource.playOnAwake = false;
+        seAudioSource.loop = false;
+    }
+
+    /// <summary>BGMを再生する。</summary>
+    public void PlayBGM()
+    {
+        if (bgmClip == null || bgmAudioSource == null)
+        {
+            return;
+        }
+
+        bgmAudioSource.clip = bgmClip;
+        bgmAudioSource.volume = bgmVolume;
+        bgmAudioSource.Play();
+    }
+
+    /// <summary>BGMを停止する。</summary>
+    public void StopBGM()
+    {
+        if (bgmAudioSource != null)
+        {
+            bgmAudioSource.Stop();
+        }
+    }
+
+    /// <summary>効果音を再生する。</summary>
+    public void PlaySE(AudioClip clip)
+    {
+        if (clip == null || seAudioSource == null)
+        {
+            return;
+        }
+
+        seAudioSource.PlayOneShot(clip, seVolume);
+    }
+
+    /// <summary>クリック・決定効果音を再生する。</summary>
+    private void PlayClickSE()
+    {
+        PlaySE(clickSE);
+    }
+
+    /// <summary>選択切替効果音を再生する。</summary>
+    private void PlaySelectSE()
+    {
+        PlaySE(selectSE);
     }
 
     private void Update()
@@ -76,16 +178,19 @@ public class StartSceneController : MonoBehaviour
             || keyboard.leftArrowKey.wasPressedThisFrame
             || keyboard.aKey.wasPressedThisFrame)
         {
+            PlaySelectSE();
             SelectMale();
         }
         else if (keyboard.digit2Key.wasPressedThisFrame
                  || keyboard.rightArrowKey.wasPressedThisFrame
                  || keyboard.dKey.wasPressedThisFrame)
         {
+            PlaySelectSE();
             SelectFemale();
         }
         else if (keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame)
         {
+            PlayClickSE();
             ConfirmAndStart();
         }
     }
@@ -93,6 +198,8 @@ public class StartSceneController : MonoBehaviour
     /// <summary>タイトル要素を隠し、性別選択 UI を表示する。</summary>
     public void ShowGenderSelect()
     {
+        PlayClickSE();
+
         if (titleElements != null)
         {
             foreach (GameObject obj in titleElements)
@@ -133,6 +240,7 @@ public class StartSceneController : MonoBehaviour
     /// <summary>シーン上の男性ボタンから呼ばれる。</summary>
     public void OnSelectMale()
     {
+        PlayClickSE();
         selectedGender = PlayerGender.Male;
         ApplySelectionVisual();
         PersistGenderAndLoadScene(PlayerGender.Male);
@@ -141,6 +249,7 @@ public class StartSceneController : MonoBehaviour
     /// <summary>シーン上の女性ボタンから呼ばれる。</summary>
     public void OnSelectFemale()
     {
+        PlayClickSE();
         selectedGender = PlayerGender.Female;
         ApplySelectionVisual();
         PersistGenderAndLoadScene(PlayerGender.Female);
@@ -169,6 +278,14 @@ public class StartSceneController : MonoBehaviour
                 : GameDataManager.Gender.Male;
         }
 
+        // 効果音が再生されてからシーン遷移
+        Invoke(nameof(DoSceneTransition), transitionWaitTime);
+    }
+
+    /// <summary>実際のシーン遷移処理。</summary>
+    private void DoSceneTransition()
+    {
+        StopBGM();
         SceneTransition.Load(gameSceneName);
     }
 
@@ -229,92 +346,4 @@ public class StartSceneController : MonoBehaviour
         }
     }
 
-    /// <summary>Inspector 未設定時に、最低限の男女選択 UI を Canvas 上へ生成する。</summary>
-    private void EnsureSelectionUi()
-    {
-        if (maleButton != null && femaleButton != null)
-        {
-            return;
-        }
-
-        Canvas canvas = FindAnyObjectByType<Canvas>();
-        if (canvas == null)
-        {
-            Debug.LogWarning("StartSceneController: Canvas が見つからないため性別選択 UI を生成できません。");
-            return;
-        }
-
-        GameObject panelObject = new GameObject("GenderSelectPanel", typeof(RectTransform));
-        panelObject.transform.SetParent(canvas.transform, false);
-
-        RectTransform panelRect = panelObject.GetComponent<RectTransform>();
-        panelRect.anchorMin = new Vector2(0.5f, 0f);
-        panelRect.anchorMax = new Vector2(0.5f, 0f);
-        panelRect.pivot = new Vector2(0.5f, 0f);
-        panelRect.anchoredPosition = new Vector2(0f, 40f);
-        panelRect.sizeDelta = new Vector2(520f, 140f);
-
-        if (instructionText == null)
-        {
-            instructionText = CreateTmpLabel(panelObject.transform, "InstructionText", new Vector2(0f, 50f), new Vector2(500f, 50f));
-        }
-
-        if (maleButton == null)
-        {
-            maleButton = CreateChoiceButton(panelObject.transform, "MaleButton", "男性 (1)", new Vector2(-130f, -20f));
-        }
-
-        if (femaleButton == null)
-        {
-            femaleButton = CreateChoiceButton(panelObject.transform, "FemaleButton", "女性 (2)", new Vector2(130f, -20f));
-        }
-    }
-
-    private static Button CreateChoiceButton(Transform parent, string name, string label, Vector2 anchoredPosition)
-    {
-        GameObject buttonObject = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
-        buttonObject.transform.SetParent(parent, false);
-
-        RectTransform rect = buttonObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = anchoredPosition;
-        rect.sizeDelta = new Vector2(200f, 56f);
-
-        Image image = buttonObject.GetComponent<Image>();
-        image.color = Color.white;
-
-        Button button = buttonObject.GetComponent<Button>();
-        button.targetGraphic = image;
-
-        TMP_Text labelText = CreateTmpLabel(buttonObject.transform, "Label", Vector2.zero, new Vector2(180f, 40f));
-        labelText.text = label;
-        labelText.alignment = TextAlignmentOptions.Center;
-        labelText.fontSize = 28f;
-        labelText.color = Color.black;
-
-        return button;
-    }
-
-    private static TMP_Text CreateTmpLabel(Transform parent, string name, Vector2 anchoredPosition, Vector2 size)
-    {
-        GameObject textObject = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
-        textObject.transform.SetParent(parent, false);
-
-        RectTransform rect = textObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchoredPosition = anchoredPosition;
-        rect.sizeDelta = size;
-
-        TextMeshProUGUI tmp = textObject.GetComponent<TextMeshProUGUI>();
-        tmp.text = string.Empty;
-        tmp.fontSize = 22f;
-        tmp.alignment = TextAlignmentOptions.Center;
-        tmp.color = Color.white;
-        tmp.textWrappingMode = TextWrappingModes.Normal;
-        return tmp;
-    }
 }

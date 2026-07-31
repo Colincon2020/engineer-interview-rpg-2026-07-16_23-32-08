@@ -169,7 +169,7 @@ MonoBehaviour:
   loop: 1
   enterSE: {fileID: 8300000, guid: ecd1cce94975b4c5c8b6112caefd6f9d, type: 3}
   seVolume: 1
-  sceneTransitionDelay: 0.3
+  enterWaitTime: 1
 --- !u!1 &1135480938
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Enter\u30AD\u30FC\u3067\u30BF\u30A4\u30C8\u30EB\u306B\u623B\u308B\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 811e58c9a9cc149239fa56714fb683ad, type: 2}
-  m_sharedMaterial: {fileID: -4406622480579897903, guid: 811e58c9a9cc149239fa56714fb683ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: de63e77ce1fb94c18a6fda370bce3495, type: 2}
+  m_sharedMaterial: {fileID: -4406622480579897903, guid: de63e77ce1fb94c18a6fda370bce3495, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -505,8 +505,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 811e58c9a9cc149239fa56714fb683ad, type: 2}
-  m_sharedMaterial: {fileID: -4406622480579897903, guid: 811e58c9a9cc149239fa56714fb683ad, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: de63e77ce1fb94c18a6fda370bce3495, type: 2}
+  m_sharedMaterial: {fileID: -4406622480579897903, guid: de63e77ce1fb94c18a6fda370bce3495, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

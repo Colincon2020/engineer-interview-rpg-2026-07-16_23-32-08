@@ -98,6 +98,22 @@ public class ActionSceneController : MonoBehaviour
     [SerializeField]
     private Sprite femaleExhaustedFace;
 
+    [Header("効果音設定")]
+    [SerializeField]
+    [Tooltip("練習開始ボタンの効果音")]
+    private AudioClip practiceSE;
+
+    [SerializeField]
+    [Tooltip("寝るボタンの効果音")]
+    private AudioClip sleepSE;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    [Tooltip("効果音の音量")]
+    private float seVolume = 1.0f;
+
+    private AudioSource seAudioSource;
+
     [Header("デバッグ（ActionScene単体テスト用）")]
     [SerializeField]
     [Tooltip("ON のとき GameSession を無視し、下の Test Gender を使う（Editor のみ）")]
@@ -109,6 +125,7 @@ public class ActionSceneController : MonoBehaviour
     private void Awake()
     {
         ResolveReferences();
+        SetupAudioSource();
 
         if (player == null)
         {
@@ -137,6 +154,29 @@ public class ActionSceneController : MonoBehaviour
         {
             defaultBackground = backgroundImage.sprite;
         }
+    }
+
+    private void SetupAudioSource()
+    {
+        seAudioSource = GetComponent<AudioSource>();
+        if (seAudioSource == null)
+        {
+            seAudioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        seAudioSource.playOnAwake = false;
+        seAudioSource.loop = false;
+    }
+
+    /// <summary>効果音を再生する。</summary>
+    private void PlaySE(AudioClip clip)
+    {
+        if (clip == null || seAudioSource == null)
+        {
+            return;
+        }
+
+        seAudioSource.PlayOneShot(clip, seVolume);
     }
 
     private void OnEnable()
@@ -175,6 +215,8 @@ public class ActionSceneController : MonoBehaviour
     /// <summary>練習開始ボタンから呼ばれる。</summary>
     public void OnPracticeClicked()
     {
+        PlaySE(practiceSE);
+
         if (player == null)
         {
             Debug.LogWarning("ActionSceneController: Player がありません。");
@@ -198,6 +240,8 @@ public class ActionSceneController : MonoBehaviour
     /// <summary>就寝ボタンから呼ばれる。</summary>
     public void OnSleepClicked()
     {
+        PlaySE(sleepSE);
+
         if (player == null)
         {
             Debug.LogWarning("ActionSceneController: Player がありません。");
@@ -213,6 +257,7 @@ public class ActionSceneController : MonoBehaviour
         if (player != null)
         {
             GameSession.SetMental(player.Mental);
+            GameSession.SetSkillLevels(player.GetSkillSheet());
         }
 
         SceneTransition.Load(InterviewSceneName);
@@ -277,7 +322,9 @@ public class ActionSceneController : MonoBehaviour
             day = WeekdayLabels.Length - 1;
         }
 
-        daysText.text = WeekdayLabels[day];
+        int remainingDays = Player.TotalDays - day;
+        string remainingText = remainingDays > 0 ? $"(あと{remainingDays}日)" : "(最終日)";
+        daysText.text = $"{WeekdayLabels[day]} {remainingText}";
     }
 
     /// <summary>

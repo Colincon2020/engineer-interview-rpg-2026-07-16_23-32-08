@@ -39,21 +39,21 @@
           {
             "id": "B",
             "text": "事業の成長性に惹かれました。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "どの事業か、聞きたくなりますね。"
           },
           {
             "id": "C",
             "text": "知名度があるからです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "看板で選ばれるのは、少し寂しいな。"
           },
           {
             "id": "D",
             "text": "内定が出そうだと思ったからです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……本音がすぎるね。"
           }
@@ -79,21 +79,21 @@
           {
             "id": "B",
             "text": "若さと体力で貢献します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "元気があるのは悪くない。"
           },
           {
             "id": "C",
             "text": "まだ何もできませんが、やる気はあります。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "やる気の使い先を聞きたかったな。"
           },
           {
             "id": "D",
             "text": "入ってみないとわかりません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "こちらも判断できないよ。"
           }
@@ -119,21 +119,21 @@
           {
             "id": "B",
             "text": "毎年、流行の言語を一つ覚え続けます。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "努力家だが、追いかけ続けるのは大変だよ。"
           },
           {
             "id": "C",
             "text": "資格を取り続けます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "資格は入口にすぎないね。"
           },
           {
             "id": "D",
             "text": "会社が用意してくれる研修を待ちます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "待つ人に10年後の価値は残らないよ。"
           }
@@ -159,21 +159,21 @@
           {
             "id": "B",
             "text": "まず全部学び終えてから着手します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "丁寧だが、それでは間に合わないな。"
           },
           {
             "id": "C",
             "text": "経験者に代わってもらえないか相談します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "誰かがやらなきゃいけないんだよ。"
           },
           {
             "id": "D",
             "text": "できないと断ります。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……それでは任せられないね。"
           }
@@ -199,21 +199,21 @@
           {
             "id": "B",
             "text": "品質は守りたいので、納期の延長をお願いします。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "筋は通っているね。"
           },
           {
             "id": "C",
             "text": "間に合わせるため、テストを省きます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "あとで倍の代償を払うことになるよ。"
           },
           {
             "id": "D",
             "text": "黙って残業して埋めます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "一番困るのは、黙られることなんだ。"
           }
@@ -239,21 +239,21 @@
           {
             "id": "B",
             "text": "ログを追って原因を特定します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "大事だが、止まっている間もお客様は待っているよ。"
           },
           {
             "id": "C",
             "text": "自分のコードを直して、黙って再デプロイします。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "報告のない復旧は、次の事故を呼ぶ。"
           },
           {
             "id": "D",
             "text": "誰の変更が原因かを先に突き止めます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "犯人探しは、あとにしてくれ。"
           }
@@ -279,21 +279,21 @@
           {
             "id": "B",
             "text": "読みづらいので、全面的に書き直します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "気持ちはわかるが、止まると売上が止まる。"
           },
           {
             "id": "C",
             "text": "動いているので触りません。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "延命策としては現実的だね。"
           },
           {
             "id": "D",
             "text": "最新の構成に一気に載せ替えます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それで会社が傾いた例を知っているよ。"
           }
@@ -319,21 +319,21 @@
           {
             "id": "B",
             "text": "処理速度です。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "大事だが、それが最優先とは限らないな。"
           },
           {
             "id": "C",
             "text": "流行の構成に合わせることです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "流行は数年で変わるよ。"
           },
           {
             "id": "D",
             "text": "とにかく短く書くことです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "短さと読みやすさは別物だ。"
           }
@@ -359,21 +359,21 @@
           {
             "id": "B",
             "text": "とりあえずデータベースに索引を追加します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "当たることもあるが、賭けだね。"
           },
           {
             "id": "C",
             "text": "サーバーのスペックを上げます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "金で殴る前に、原因を知りたいな。"
           },
           {
             "id": "D",
             "text": "怪しいところを勘で直します。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "勘は、計測のあとに使うものだ。"
           }
@@ -399,21 +399,21 @@
           {
             "id": "B",
             "text": "わからない部分は全部AIに書かせます。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "わからないまま入るコードが一番怖い。"
           },
           {
             "id": "C",
             "text": "力がつかなくなるので使いません。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "気持ちはわかるが、生産性では負けるよ。"
           },
           {
             "id": "D",
             "text": "動けば中身は気にしません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……その姿勢が、事故を生むんだ。"
           }
@@ -439,21 +439,21 @@
           {
             "id": "B",
             "text": "パスワードを暗号化して保存します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "必要だが、それだけでは足りないな。"
           },
           {
             "id": "C",
             "text": "管理画面のURLを推測されにくくします。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "隠すことは守ることではないよ。"
           },
           {
             "id": "D",
             "text": "まず動くものを作って、対策はあとで入れます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "その「あとで」は、たいてい来ないんだ。"
           }
@@ -479,21 +479,21 @@
           {
             "id": "B",
             "text": "サーバーを増やします。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "時間は稼げるね。"
           },
           {
             "id": "C",
             "text": "別の種類のデータベースに移行します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "移行そのものが大工事だよ。"
           },
           {
             "id": "D",
             "text": "利用者数を制限します。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……売上を捨てる案だね。"
           }
@@ -519,21 +519,21 @@
           {
             "id": "B",
             "text": "時間がないなら、手動の確認で代えます。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "回数が増えると、それも高くつくよ。"
           },
           {
             "id": "C",
             "text": "テストは後回しにします。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "後回しは、なくなるのと同じだ。"
           },
           {
             "id": "D",
             "text": "テストは品質保証の担当の仕事だと伝えます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "線を引きすぎると、誰も守らなくなる。"
           }
@@ -559,21 +559,21 @@
           {
             "id": "B",
             "text": "経験不足です。経験を積めば当たるようになります。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "経験だけでは当たらないんだよ。"
           },
           {
             "id": "C",
             "text": "割り込みの依頼が多いからです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "それも要因だが、外の話にしすぎだね。"
           },
           {
             "id": "D",
             "text": "見積もりは、そもそも当たらないものです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それでは商売にならないんだ。"
           }
@@ -599,21 +599,21 @@
           {
             "id": "B",
             "text": "もう一度、丁寧に教えます。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "優しいね。ただ3回目には工夫が必要だ。"
           },
           {
             "id": "C",
             "text": "厳しく注意します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "恐怖で減るミスは、隠れるだけだよ。"
           },
           {
             "id": "D",
             "text": "自分でやった方が早いので、代わりにやります。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それでは、あなたが潰れる。"
           }
@@ -639,21 +639,21 @@
           {
             "id": "B",
             "text": "生活があるので給与です。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "正直で構わないよ。"
           },
           {
             "id": "C",
             "text": "どちらでも構いません。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "希望がないと、こちらも配置に困る。"
           },
           {
             "id": "D",
             "text": "両方すぐに欲しいです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……まずは一つ、結果を見せてくれ。"
           }
@@ -679,21 +679,21 @@
           {
             "id": "B",
             "text": "上の判断に従います。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "従うだけの人は、増えすぎると危ないんだ。"
           },
           {
             "id": "C",
             "text": "納得できるまでは従いません。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "全員がそうすると、会社は動かないよ。"
           },
           {
             "id": "D",
             "text": "黙って辞めます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "せめて一度は言ってくれ。"
           }
@@ -719,21 +719,21 @@
           {
             "id": "B",
             "text": "独学です。自分のペースで進められます。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "自走できるのは長所だ。"
           },
           {
             "id": "C",
             "text": "チームです。教えてもらえるので早いです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "教わる前提が強すぎるかな。"
           },
           {
             "id": "D",
             "text": "学習は業務時間内だけで足りると思います。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……この業界では、少し厳しい考えだ。"
           }
@@ -759,21 +759,21 @@
           {
             "id": "B",
             "text": "素直に直します。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "素直さは大事だよ。"
           },
           {
             "id": "C",
             "text": "自分の書き方も間違っていないと反論します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "議論はいいが、目的を忘れないでほしい。"
           },
           {
             "id": "D",
             "text": "レビューが怖いので、提出を遅らせます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "遅れるほど、怖くなるだけだよ。"
           }
@@ -799,21 +799,21 @@
           {
             "id": "B",
             "text": "研修制度について教えてください。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "気になるところだよね。"
           },
           {
             "id": "C",
             "text": "残業と休日はどれくらいですか。",
-            "score": 2,
+            "score": 0,
             "isCorrect": false,
             "reaction": "聞いて構わないが、一番最後の一問がそれか。"
           },
           {
             "id": "D",
             "text": "特にありません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……そうか。ここまでだね。"
           }

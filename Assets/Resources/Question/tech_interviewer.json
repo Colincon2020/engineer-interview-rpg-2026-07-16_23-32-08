@@ -39,21 +39,21 @@
           {
             "id": "B",
             "text": "書き方が違うだけで、返る結果は同じです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは違います。件数が変わります。"
           },
           {
             "id": "C",
             "text": "INNER JOIN の方が必ず速いので、常にそちらを使うべきです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "速度の話と結果の話が混ざっていますね。"
           },
           {
             "id": "D",
             "text": "LEFT JOIN は左の表の一致した行だけを返します。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それだと INNER JOIN の説明になってしまいます。"
           }
@@ -79,21 +79,21 @@
           {
             "id": "B",
             "text": "インターフェースは複数実装できるので、迷ったらインターフェースにします。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "結論としては悪くないですが、理由が浅いですね。"
           },
           {
             "id": "C",
             "text": "抽象クラスは古い書き方なので、今は使いません。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "そんなことはありませんよ。"
           },
           {
             "id": "D",
             "text": "どちらも同じもので、名前が違うだけです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……そこは分けて理解してほしいです。"
           }
@@ -119,21 +119,21 @@
           {
             "id": "B",
             "text": "値型はスタック、参照型はヒープに置かれます。それだけの違いです。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "置き場所の話は合っていますが、本質は渡り方ですね。"
           },
           {
             "id": "C",
             "text": "参照型は書き換えられないので安全です。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "むしろ逆の話になっています。"
           },
           {
             "id": "D",
             "text": "値型は数値専用、参照型は文字専用です。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……そこは復習してきてください。"
           }
@@ -159,21 +159,21 @@
           {
             "id": "B",
             "text": "浅いコピーは速く、深いコピーは遅いという速度の違いです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "結果はそうですが、理由が抜けています。"
           },
           {
             "id": "C",
             "text": "リストは浅いコピー、辞書は深いコピーになります。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "型では決まりませんよ。"
           },
           {
             "id": "D",
             "text": "= で代入すればどちらもコピーされるので、区別は不要です。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "そこが一番バグを生むところです。"
           }
@@ -199,21 +199,21 @@
           {
             "id": "B",
             "text": "生ポインタより書く量が少なく、コードが短くなるからです。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "短さは副産物ですね。"
           },
           {
             "id": "C",
             "text": "処理速度が生ポインタより速くなるからです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "速度が目的ではありません。"
           },
           {
             "id": "D",
             "text": "delete を書かなくてよくなるので、メモリを気にしなくて済みます。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "半分は合っていますが、気にしなくていいわけではないです。"
           }
@@ -239,21 +239,21 @@
           {
             "id": "B",
             "text": "関数を外に切り出して名前を付け、ネストを浅くします。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "有効ですが、非同期の扱い自体は変わりませんね。"
           },
           {
             "id": "C",
             "text": "setTimeout で順番を調整して待ちます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは事故のもとです。"
           },
           {
             "id": "D",
             "text": "同期処理に書き換えて、待ち時間の間はループで待機します。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "画面が固まってしまいますね。"
           }
@@ -279,21 +279,21 @@
           {
             "id": "B",
             "text": "行列演算や画像処理が速くなります。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "例は正しいです。理由も言えるとよかったですね。"
           },
           {
             "id": "C",
             "text": "GPUを使えば、どんな処理でもCPUより速くなります。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "そこは誤解が多いところです。"
           },
           {
             "id": "D",
             "text": "描画専用なので、計算には使いません。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "今はそうでもないんですよ。"
           }
@@ -319,21 +319,21 @@
           {
             "id": "B",
             "text": "nil が入るかもしれない値です。使うときは ! を付けて取り出します。",
-            "score": 3,
+            "score": 0,
             "isCorrect": false,
             "reaction": "前半は合っていますが、後半で落ちますね。"
           },
           {
             "id": "C",
             "text": "省略可能な引数を表す機能です。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは別の話です。"
           },
           {
             "id": "D",
             "text": "エラーを無視するための仕組みです。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……逆に安全側の仕組みですよ。"
           }
@@ -359,21 +359,21 @@
           {
             "id": "B",
             "text": "画面更新をオフにします。",
-            "score": 6,
+            "score": 4,
             "isCorrect": false,
             "reaction": "効果はありますが、本体はセルアクセスです。"
           },
           {
             "id": "C",
             "text": "Select や Activate を挟んで、確実に対象を指定します。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "それは遅くなる書き方です。"
           },
           {
             "id": "D",
             "text": "パソコンを買い替えます。",
-            "score": 0,
+            "score": -5,
             "isCorrect": false,
             "reaction": "……予算の話になってしまいますね。"
           }

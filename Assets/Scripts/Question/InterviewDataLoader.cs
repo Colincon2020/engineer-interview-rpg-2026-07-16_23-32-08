@@ -43,6 +43,7 @@ public static class InterviewDataLoader
     /// <summary>
     /// JSON の質問データ本体を出題順で返す。
     /// randomize が true の場合は出題前にシャッフルする。
+    /// 「最後に」で始まる質問は常に最後に配置される。
     /// </summary>
     public static List<InterviewQuestionData> ToQuestionDataList(
         InterviewerFileData fileData,
@@ -55,6 +56,20 @@ public static class InterviewDataLoader
         }
 
         var source = new List<InterviewQuestionData>(fileData.interviewer.questions);
+
+        // 「最後に」で始まる質問を分離
+        InterviewQuestionData finalQuestion = null;
+        for (int i = source.Count - 1; i >= 0; i--)
+        {
+            if (source[i] != null && !string.IsNullOrEmpty(source[i].question) &&
+                source[i].question.StartsWith("最後に"))
+            {
+                finalQuestion = source[i];
+                source.RemoveAt(i);
+                break;
+            }
+        }
+
         if (fileData.interviewer.randomize)
         {
             Shuffle(source);
@@ -63,10 +78,13 @@ public static class InterviewDataLoader
         int take = askCount
             ?? (fileData.interviewer.askCount > 0
                 ? fileData.interviewer.askCount
-                : source.Count);
-        take = Mathf.Clamp(take, 0, source.Count);
+                : source.Count + (finalQuestion != null ? 1 : 0));
 
-        for (int i = 0; i < take; i++)
+        // 最後の質問がある場合は、その分を差し引いて通常の質問を取得
+        int normalTake = finalQuestion != null ? take - 1 : take;
+        normalTake = Mathf.Clamp(normalTake, 0, source.Count);
+
+        for (int i = 0; i < normalTake; i++)
         {
             InterviewQuestionData q = source[i];
             if (q == null || string.IsNullOrEmpty(q.question))
@@ -75,6 +93,12 @@ public static class InterviewDataLoader
             }
 
             result.Add(q);
+        }
+
+        // 最後の質問を末尾に追加
+        if (finalQuestion != null && take > normalTake)
+        {
+            result.Add(finalQuestion);
         }
 
         return result;
