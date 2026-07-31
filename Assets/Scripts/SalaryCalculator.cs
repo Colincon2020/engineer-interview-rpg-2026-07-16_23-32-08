@@ -11,10 +11,10 @@ public static class SalaryCalculator
     private const int BaseSalary = 150;
 
     /// <summary>面接スコア1点あたりの年収加算（万円）。</summary>
-    private const float InterviewScoreMultiplier = 0.5f;
+    private const float InterviewScoreMultiplier = 1.025f;
 
     /// <summary>スキルスコア1点あたりの年収加算（万円）。</summary>
-    private const float SkillScoreMultiplier = 0.5f;
+    private const float SkillScoreMultiplier = 4.5f;
 
     /// <summary>言語ごとの需要重み係数。</summary>
     private static readonly Dictionary<SkillType, float> SkillDemandWeights = new Dictionary<SkillType, float>
@@ -34,7 +34,7 @@ public static class SalaryCalculator
     /// <summary>
     /// 年収を計算する。
     /// </summary>
-    /// <param name="interviewScore">面接の合計スコア（0〜400想定）。</param>
+    /// <param name="interviewScore">面接の合計スコア（0〜305想定）。</param>
     /// <param name="skillLevels">スキルレベルのディクショナリ。</param>
     /// <returns>年収（万円）。</returns>
     public static int CalculateSalary(int interviewScore, IReadOnlyDictionary<SkillType, int> skillLevels)

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// 技術面接官。特訓で伸ばしたスキルの総量で受け答えの成否が決まる。質問は3問。
+/// 技術面接官。特訓で伸ばしたスキルの総量で受け答えの成否が決まる。質問は5問。
 /// スキル合計が <see cref="skillForTopScore"/> に達すると正答率がほぼ最大になる。
 /// </summary>
 public class TechnicalInterviewer : Interviewer
@@ -13,7 +13,7 @@ public class TechnicalInterviewer : Interviewer
 
     public override InterviewerType Type => InterviewerType.Technical;
     public override string DisplayName => "技術面接官";
-    public override int QuestionCount => 3;
+    public override int QuestionCount => 5;
 
     protected override float GetAnswerSuccessRate(Player player)
     {

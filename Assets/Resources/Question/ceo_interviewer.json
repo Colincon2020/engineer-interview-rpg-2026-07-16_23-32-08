@@ -14,10 +14,10 @@
     "theme": "人柄＋技術（ランダム）",
     "difficulty": "高",
     "difficultyWeight": 2.0,
-    "questionCount": 20,
-    "askCount": 20,
+    "questionCount": 10,
+    "askCount": 10,
     "randomize": true,
-    "maxScore": 400,
+    "maxScore": 200,
     "questions": [
       {
         "id": "ceo_01",

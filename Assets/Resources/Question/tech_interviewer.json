@@ -14,10 +14,10 @@
     "theme": "技術",
     "difficulty": "中",
     "difficultyWeight": 1.5,
-    "questionCount": 9,
-    "askCount": 9,
-    "randomize": false,
-    "maxScore": 135,
+    "questionCount": 5,
+    "askCount": 5,
+    "randomize": true,
+    "maxScore": 75,
     "questions": [
       {
         "id": "tech_01",

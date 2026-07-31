@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using unityroom.Api;
 
 /// <summary>
 /// InterviewScene の制御。
@@ -966,6 +967,8 @@ public class InterviewSceneController : MonoBehaviour
         if (offerMessageText != null)
         {
             offerMessageText.text = $"内定おめでとう！\n\nあなたの年収は\n{salary}万円です\n\n<size=70%>Enter/Spaceでタイトルへ</size>";
+            // ボードNo1にスコア年収を送信する。
+            UnityroomApiClient.Instance.SendScore(1, salary, ScoreboardWriteMode.Always);
         }
 
         // 質問テキストを非表示
