@@ -62,9 +62,9 @@
       "finalPassMinScore": 100,
       "finalFailRank": "D",
       "stagePassMode": "proportional",
-      "stagePassRatioNumerator": 100,
+      "stagePassRatioNumerator": 152,
       "stagePassRatioDenominator": 305,
-      "note": "各面接 passScore = ceil(maxScore * 100 / 305)。最終合格は totalScore >= 100（C以上）。不合格時は ActionScene へ戻る。"
+      "note": "各面接 passScore = ceil(maxScore * 152 / 305)（約50%）。HR:15 / 技術:38 / 社長:100。最終合格は totalScore >= 100（C以上）。不合格時は ActionScene へ戻る。"
     }
   }
 }
